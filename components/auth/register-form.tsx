@@ -26,7 +26,7 @@ import { register } from "@/actions/register";
 import { startTransition, useState, useTransition } from "react";
 
 
-export const registerForm = () => {
+export const RegisterForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -37,6 +37,7 @@ export const registerForm = () => {
     defaultValues: {
       email: "",
       password: "",
+      name: "",
     },
   });
 
@@ -57,9 +58,9 @@ export const registerForm = () => {
 
   return (
     <CardWrapper
-      headerLabel="Welcome back"
-      backButtonLabel="Don't have an account?"
-      backButtonHref="/auth/register"
+      headerLabel="Create an account"
+      backButtonLabel="Already have an account?"
+      backButtonHref="/auth/login"
       showSocial
     >
       <Form {...form}>
@@ -68,6 +69,23 @@ export const registerForm = () => {
           className="space-y-6"
         >
           <div className="space-y-4">
+          <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      placeholder="john doe"
+                      disabled={isPending}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="email"
@@ -102,7 +120,7 @@ export const registerForm = () => {
           <FormError message={error}/>
           <FormSuccess message={success}/>
           <Button disabled={isPending}  type="submit" className="w-full">
-            Login
+            Register
           </Button>
         </form>
       </Form>
