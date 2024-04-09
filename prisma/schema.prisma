@@ -5,10 +5,12 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 
+// prisma/schema.prisma
 datasource db {
   provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  url  	    = env("DATABASE_URL")
+  // uncomment next line if you use Prisma <5.10
+  directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 generator client {
