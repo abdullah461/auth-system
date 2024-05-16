@@ -3,7 +3,8 @@
  * they donot require authentication
  */
 export const publicRoutes = [
-    "/"
+    "/",
+    "/auth/new-verification"
 ];
 
 
