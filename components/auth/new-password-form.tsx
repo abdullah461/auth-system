@@ -24,10 +24,12 @@ import { NewPasswordSchema } from "@/schemas";
 import { LoginButton } from "./login-btn";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
-import { reset } from "@/actions/reset";
+import { useSearchParams } from "next/navigation";
+import { newPassword } from "@/actions/new-password";
 
 export const NewPasswordForm = () => {
- 
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
 
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
@@ -48,8 +50,9 @@ export const NewPasswordForm = () => {
     console.log(values)
 
     startTransition(() => {
-      reset(values).then((data) => {
-        setError(data?.error);
+      newPassword(values, token)
+      .then((data) => {
+        setError(data?.error); 
         setSuccess(data?.success);
       });
     });

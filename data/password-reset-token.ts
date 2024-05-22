@@ -5,6 +5,7 @@ export const getPasswordResetTokenByToken = async (token: string) => {
         const passwordResetToken = await db.passwordResetToken.findUnique({
             where: { token }
         });
+
         return passwordResetToken;
 
     } catch {
