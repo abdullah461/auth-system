@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button"
-import { Main } from "next/document"
 import { LoginButton } from "@/components/auth/login-btn"
 
 export default function Home() {
