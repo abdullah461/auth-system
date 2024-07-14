@@ -1,6 +1,6 @@
 /**
  * this is an array of routes that are accesible to the public
- * they donot require authentication
+ * they do not require authentication
  */
 export const publicRoutes = [
     "/",
