@@ -34,6 +34,9 @@ const SettingsPage = () => {
     resolver: zodResolver(SettingsSchema),
     defaultValues: {
       name: user?.name || undefined,
+      email: user?.email || undefined,
+      password: undefined,
+      newPassword: undefined,
     },
   });
 
@@ -87,7 +90,59 @@ const SettingsPage = () => {
                 </FormItem>
               )}
             ></FormField>
+              <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="email"
+                      placeholder="Johnoe@gmail.com"
+                      disabled={isPending}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            ></FormField>
+                <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Current Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="password"
+                      placeholder="******"
+                      disabled={isPending}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            ></FormField>
+                <FormField
+              control={form.control}
+              name="newPassword"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>New Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      type="password"
+                      placeholder="******"
+                      disabled={isPending}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            ></FormField>
             </div>
+            
             <FormError message={error}/>
             <FormSuccess message={success}/>
             <Button disabled={isPending} type="submit">Save</Button>
