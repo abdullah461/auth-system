@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className="text-6xl font-semibold text-white drop-shadow-md">Auth</h1>
         <p className="text-white text-lg">A simple authentication system</p>
         <div>
-          <LoginButton>
+          <LoginButton mode="modal" asChild>
           <Button variant={"secondary"} size="lg">sign in</Button>
           </LoginButton>
         </div>
