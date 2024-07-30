@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project.
+
+It is an advanced user authentication system which can also serve as a boiler-plate to build mordern applications of anytype at any scale 
 
 ## Getting Started
 
